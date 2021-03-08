@@ -4,7 +4,7 @@ Project goal to develop website and app with calendar, tasks, notes with share f
 
 Project will have:
 
--Calendar function similar to google calendar.
+-Calendar function similar to google calendar.\n
 -Tasks that can be created and seen on the calendar
 -Notes that can be created and seen on the calendar
 -Collaborative features like sharing calendars, tasks, notes with other people
