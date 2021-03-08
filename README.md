@@ -12,3 +12,4 @@ Project will have:
 
 -Collaborative features like sharing calendars, tasks, notes with other people.
 
+Team members: Afrida Faiza, Ashoka Shringla, Raina Kim
