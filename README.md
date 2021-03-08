@@ -1,4 +1,4 @@
-# SoftwareEngineeringProject
+# Software Engineering Project (name not finalized)
 
 Project goal to develop website and app with calendar, tasks, notes with share function for collaboration
 
