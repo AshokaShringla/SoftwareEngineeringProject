@@ -20,11 +20,12 @@ Make sure to have `make` installed.
 
 - To create the new env for a new developer, run `make dev_env`.
 - To commit and push the code to the repo, type `make prod`.
+- To test for all endpoints, run `make tests`.
 
 ## Requirements
 
-- User sign-up, sign-in, sign-out.
-- Add/Delete/Edit tasks hourly, daily, and monthly basis.
-- Share with others.
+- User can sign up, sign in, and sign out.
+- User can add, delete, edit tasks hourly, daily, and monthly basis.
+- User can share each task with others.
 - Notes in details can be seen under each task.
-- Push notification
+- User can get push notifications
