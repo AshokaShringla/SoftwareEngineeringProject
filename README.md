@@ -28,4 +28,5 @@ Make sure to have `make` installed.
 - User can add, delete, edit tasks hourly, daily, and monthly basis.
 - User can share each task with others.
 - Notes in details can be seen under each task.
-- User can get push notifications
+- Users can get push notifications
+- Users can see the calendar with all events associated with them on it 
