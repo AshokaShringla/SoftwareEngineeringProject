@@ -23,7 +23,7 @@ Make sure to have `make` installed.
 - To test for all endpoints, run `make tests`.
 
 ## Requirements
-
+- Nav bar
 - User can sign up
 - User can sign in
 - User can sign out.
