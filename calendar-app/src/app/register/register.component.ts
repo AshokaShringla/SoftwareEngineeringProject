@@ -32,14 +32,12 @@ export class RegisterComponent implements OnInit {
         this.user = <User>userData; this.registerAuth(this.user);
       })
     }
-
-
   }
 
   registerAuth(user: User){
     if (user != null) {
       this._contextService.store(user);
-      this.router.navigateByUrl('customerhome')
+      this.router.navigateByUrl('userHome')
     } else {
       this.reset();
     }    

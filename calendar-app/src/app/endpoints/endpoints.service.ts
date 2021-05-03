@@ -10,7 +10,7 @@ export class EndpointsService {
   public readonly authURL = "http://localhost:8000/"; 
 
   /** Register User */
-  public readonly REGISTER_USER: string = this.authURL + 'users/signup';
+  public readonly REGISTER_USER: string = this.authURL + 'user/signup';
   /** Login User*/
   public readonly LOGIN_USER: string = this.authURL + 'users/login';
   // Get all my notes
