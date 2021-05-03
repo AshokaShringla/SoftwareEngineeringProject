@@ -11,6 +11,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { NotesComponent } from './notes/notes.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+
+import dayGridPlugin from '@fullcalendar/daygrid'
+import interactionPlugin from '@fullcalendar/interaction'
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin, interactionPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -20,13 +29,15 @@ import { NotesComponent } from './notes/notes.component';
     LoginComponent,
     RegisterComponent,
     UserHomeComponent,
-    NotesComponent
+    NotesComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

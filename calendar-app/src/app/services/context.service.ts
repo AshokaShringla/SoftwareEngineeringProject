@@ -19,8 +19,8 @@ export class ContextService {
   }
 
   logout(){
-    localStorage.setItem(this.tokenEmail, null)
-    localStorage.setItem(this.tokenPass, null)
+    localStorage.removeItem(this.tokenEmail)
+    localStorage.removeItem(this.tokenPass)
     localStorage.setItem("logged", "false")    
   }
 
