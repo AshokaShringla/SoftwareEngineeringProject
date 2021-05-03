@@ -17,6 +17,8 @@ export class EndpointsService {
   public readonly GET_MNOTES: string = this.authURL + 'notes/mynotes';
   // Get all notes shared with me
   public readonly GET_SNOTES: string = this.authURL + 'notes/sharednotes';
+   // delete note
+   public readonly DELETE_NOTE: string = this.authURL + 'notes/';
 
   constructor(private http: HttpClient) { }
    /** Test method for printing out JSON at any given URL 

@@ -13,9 +13,12 @@ import { User } from '../models/user.model';
 export class NotesComponent implements OnInit {
 
   user: User;
+  note: Notes;
   mynotes:Notes[]
   sharednotes:Notes[]
-  statusMessage:String
+  statusMessage:string
+
+  share: string;
 
   constructor(private router:Router,
     private _notesService:NotesService,
@@ -29,7 +32,6 @@ export class NotesComponent implements OnInit {
       this.getMyNotes
       this.getSharedNotes
     }
-
   }
 
   getMyNotes(){
@@ -38,7 +40,6 @@ export class NotesComponent implements OnInit {
     (error) => {console.log(error);
       this.statusMessage = "Problem with service"
       });
-
   }
 
   getSharedNotes(){
@@ -47,6 +48,21 @@ export class NotesComponent implements OnInit {
     (error) => {console.log(error);
       this.statusMessage = "Problem with service"
       });    
+  }
+
+  deleteNote(id: number){
+    this._notesService.deleteNote(this.user, id)
+    .subscribe((status) => this.statusMessage = status,                           
+    (error) => {console.log(error);
+      });
+  }
+
+  addNote(){
+    
+  }
+
+  shareNote(){
+
   }
 
 }
