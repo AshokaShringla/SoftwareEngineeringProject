@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EndpointsService {
 
-  public readonly baseURL = "http://localhost:8080/";
-  public readonly authURL = "http://localhost:8080/"; 
+  public readonly baseURL = "http://localhost:8000/";
+  public readonly authURL = "http://localhost:8000/"; 
 
   /** Register User */
-  public readonly REGISTER_USER: string = this.authURL + 'users/register';
+  public readonly REGISTER_USER: string = this.authURL + 'user/signup';
   /** Login User*/
   public readonly LOGIN_USER: string = this.authURL + 'users/login';
   // Get all my notes
