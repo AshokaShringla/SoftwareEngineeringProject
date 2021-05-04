@@ -42,8 +42,9 @@ class NoteView(View):
         except KeyError:
             return JsonResponse({ 'message' : 'INVALID_KEYS' }, status = 400)
 
+class NoteDeleteView(View):
     @login_decorator
-    def delete(self,request):
+    def post(self,request):
         data = json.loads(request.body)
         try:
             user = request.user
