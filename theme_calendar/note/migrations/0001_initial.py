@@ -22,7 +22,6 @@ class Migration(migrations.Migration):
                 ('date', models.CharField(max_length=500, null=True)),
                 ('contents', models.CharField(max_length=2000, null=True)),
                 ('owner', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='user.user')),
-
             ],
             options={
                 'db_table': 'notes',
