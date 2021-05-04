@@ -15,7 +15,7 @@
           placeholder="example@gmail.com">
           <button (click)="shareNote(note.id)" class="btn login_btn btn-primary">Share</button>
         </td>
-        <td><button (click) = "deleteNote(note.id)" class = "btn btn-warning"> Delete</button></td>
+        <td><button (click) = "deleteNote(note.id)" class = "btn btn-warning"> Delete {{note.id}} </button></td>
     </tr>
    
     <tr *ngIf = "mynotes && mynotes.length == 0">

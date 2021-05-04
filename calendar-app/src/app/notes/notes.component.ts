@@ -43,7 +43,7 @@ export class NotesComponent implements OnInit {
 
   getMyNotes(){
     this._notesService.getMyNotes(this.user)
-    .subscribe((notesData) => {this.mynotes = notesData, console.log("Hello")},                           
+    .subscribe((notesData) => {this.mynotes = notesData, console.log(this.mynotes)},                           
     (error) => {console.log(error);
       this.statusMessage = "Problem with service"
       });
