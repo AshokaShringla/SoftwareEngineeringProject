@@ -16,6 +16,8 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin, interactionPlugin
@@ -37,7 +39,11 @@ FullCalendarModule.registerPlugins([
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FullCalendarModule
+    FullCalendarModule, BrowserAnimationsModule, 
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass :'toast-top-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
