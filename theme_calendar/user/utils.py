@@ -9,9 +9,9 @@ from .models import User
 def login_decorator(func):
     def wrapper(self,request,*args,**kwargs):
         try:
-            access_token    = request.headers.get('Authorization',None)
+            access_token    = request.META['HTTP_AUTHORIZATION']
             if access_token:
-                payload         = jwt.decode(access_token,SECRET_KEY['SECRET_KEY'],algorithm = 'HS256')
+                payload         = jwt.decode(access_token,SECRET_KEY['SECRET_KEY'],algorithms = ["HS256"])
                 user            = User.objects.get( email = payload['email'])
                 request.user    = user
             else:

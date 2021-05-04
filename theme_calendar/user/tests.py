@@ -16,3 +16,13 @@ class SignUpTest(TestCase):
         self.assertEqual(response.json(),{
             "message" : "SUCCESS"
         })
+
+class SignInTest(TestCase):
+    def test_signin_post_success(self):
+        data = {
+            'email'     : 'qwer@nyu.edu',
+            'password'  : '123123'
+        }
+        response = client.post('/user/signin', json.dumps(data), content_type = 'application/json')
+
+        self.assertEqual(response.status_code, 200)

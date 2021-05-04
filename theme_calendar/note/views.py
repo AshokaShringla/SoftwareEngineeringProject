@@ -1,4 +1,5 @@
 import json
+import datetime
 
 from django.views import View
 from django.http import JsonResponse, HttpResponse
@@ -8,6 +9,7 @@ from django.db import IntegrityError
 from .models import Note, SharedNote
 from user.models import User
 from user.utils import login_decorator
+from django.db.models import Q
 
 
 class NoteView(View):
@@ -18,7 +20,7 @@ class NoteView(View):
             user = request.user
             contents = data["contents"]
             Note.objects.create(
-                owner = user.id,
+                owner = user,
                 date = str(datetime.date.today()),
                 contents = contents
             )
@@ -36,7 +38,7 @@ class NoteView(View):
                 'date' : note.date,
                 'contents' : note.contents
             }for note in notes]
-            return JsonResponse(note_list, status = 200)
+            return JsonResponse({'data':note_list}, status = 200)
         except KeyError:
             return JsonResponse({ 'message' : 'INVALID_KEYS' }, status = 400)
 
@@ -60,7 +62,7 @@ class SharedNoteView(View):
             share_emails = data['share_user_emails']
             note_id = data['note_id']
             res_object = []
-            for email in share_email:
+            for email in share_emails:
                 share_user = User.objects.get(email = email)
                 SharedNote.objects.create(
                     user = share_user,
@@ -82,15 +84,15 @@ class SharedNoteView(View):
             shared_notes = Note.objects.prefetch_related('sharednote_set').all()
             shared_notes.filter(
                 Q(owner = user.id) |
-                Q(shared__user = user.id)
+                Q(shared = user.id)
             ).distinct()
             result = [{
-                'owner' : note.owner,
+                'owner' : note.owner.name,
                 'date': note.date,
                 'contents' : note.contents,
                 'shared' : [{
-                    'name' : n.shred.name,
-                    'email' : n.shared.name
+                    'name' : n.user.name,
+                    'email' : n.user.email
                 }for n in note.sharednote_set.all()]
             }for note in shared_notes]
             return JsonResponse({'data' : result}, status = 200)
