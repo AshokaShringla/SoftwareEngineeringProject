@@ -38,7 +38,7 @@ class NoteView(View):
                 'date' : note.date,
                 'contents' : note.contents
             }for note in notes]
-            return JsonResponse({'data':note_list}, status = 200)
+            return JsonResponse(note_list, safe=False, status = 200)
         except KeyError:
             return JsonResponse({ 'message' : 'INVALID_KEYS' }, status = 400)
 
