@@ -6,6 +6,7 @@
       <th>DATE</th>
       <th>CONTENTS</th>
       <th>SHARE</th>
+      <th></th>
     </tr>
     <tr *ngFor = "let note of mynotes">
         <td>{{note.date}}</td>
@@ -14,6 +15,7 @@
           placeholder="example@gmail.com">
           <button (click)="share(note.id)" class="btn login_btn btn-primary">Share</button>
         </td>
+        <td><button (click) = "deleteNote(note.id)" class = "btn btn-warning"> Delete</button></td>
     </tr>
    
     <tr *ngIf = "mynotes && mynotes.length == 0">
@@ -29,13 +31,11 @@
       <th>OWNER</th>
       <th>DATE</th>
       <th>CONTENTS</th>
-      <th></th>
     </tr>
     <tr *ngFor = "let note of sharednotes">
         <td>{{note.owner}}</td>
         <td>{{note.date}}</td>
         <td>{{note.contents}}</td>
-        <td> <button (click) = "deleteNote(note.id)" class = "btn btn-warning"> Delete</button> </td>
     </tr>
    
     <tr *ngIf = "sharednotes && sharednotes.length == 0">

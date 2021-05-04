@@ -13,7 +13,7 @@ export class NotesService {
   constructor(private _httpService: HttpClient, private endpoints: EndpointsService) { }
 
   getMyNotes(user: User): Observable<any>{
-    return this._httpService.post(this.endpoints.GET_MNOTES + '/' + user.token, user)
+    return this._httpService.get(this.endpoints.GET_MNOTES + '/' + user.token)
   }
 
   getSharedNotes(user: User): Observable<any>{

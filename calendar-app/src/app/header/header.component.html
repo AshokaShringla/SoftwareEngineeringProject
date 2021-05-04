@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar navbar-dark bg-dark">
-    
+            <img src="/assets/img/logo.png" alt="NYU" class="logo" style="margin-right:12px">
     <a class="navbar-brand" href="calendar">
         <h3>Calendar</h3>
     </a>
@@ -13,7 +13,7 @@
         </li>
         <li *ngIf = "ifLogged()" class="nav-item" style="margin-right:25px">
             <button class="btn btn-info ml-2 mr-2" routerLink="notes">Notes</button>
-            <button class="btn btn-info ml-2 mr-2" routerLink="login" (click) = "logout()">logout</button>
+            <button class="btn btn-info ml-2 mr-2" routerLink="login" (click) = "logout()">Logout</button>
         </li>
         
         
