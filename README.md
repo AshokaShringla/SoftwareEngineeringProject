@@ -22,7 +22,7 @@ Make sure to have `make` installed.
 - To commit and push the code to the repo, type `make prod`.
 - To test for all endpoints, run `make tests`.
 - 
-#Angular
+# Angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
