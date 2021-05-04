@@ -4,6 +4,7 @@ import { ContextService } from '../services/context.service';
 import { Notes } from '../models/notes.model';
 import { NotesService } from 'src/app/services/notes.service';
 import { User } from '../models/user.model';
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-notes',
@@ -22,7 +23,7 @@ export class NotesComponent implements OnInit {
 
   constructor(private router:Router,
     private _notesService:NotesService,
-    private _contextService:ContextService) { }
+    private _contextService:ContextService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem("logged")=="true"){
@@ -30,14 +31,14 @@ export class NotesComponent implements OnInit {
       this.user.email = this._contextService.getEmail();
       this.user.password = this._contextService.getPass();
       this.user.token = this._contextService.getToken();
-      this.getMyNotes
-      this.getSharedNotes
+      this.getMyNotes();
+      this.getSharedNotes();
     }
   }
 
   getMyNotes(){
     this._notesService.getMyNotes(this.user)
-    .subscribe((notesData) => {this.mynotes = notesData, console.log(this.mynotes)},                           
+    .subscribe((notesData) => {this.mynotes = notesData, console.log("Hello")},                           
     (error) => {console.log(error);
       this.statusMessage = "Problem with service"
       });
@@ -59,12 +60,8 @@ export class NotesComponent implements OnInit {
   }
 
   addNote(){
-
-    console.log("here")
-    console.log(this.note.contents)
-
     this._notesService.addNote(this.user, this.note)
-    .subscribe((status) => this.statusMessage = status,                           
+    .subscribe((status) => {this.statusMessage = status, this.toastr.success("Note created")},                           
     (error) => {console.log(error);
       });
   }

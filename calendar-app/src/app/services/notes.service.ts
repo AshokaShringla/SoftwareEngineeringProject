@@ -33,6 +33,6 @@ export class NotesService {
   }
 
   shareNote(user: User, id: number, share: string): Observable<any>{
-    return this._httpService.get(this.endpoints.SHARE_NOTE + '/' + user.token + '/' + id + share)
+    return this._httpService.get(this.endpoints.SHARE_NOTE + '/' + id + share, {headers: new HttpHeaders({'Authorization' : user.token})});
   }
 }
