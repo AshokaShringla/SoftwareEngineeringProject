@@ -29,6 +29,7 @@ export class NotesComponent implements OnInit {
       console.log(this.note.contents)
       this.user.email = this._contextService.getEmail();
       this.user.password = this._contextService.getPass();
+      this.user.token = this._contextService.getToken();
       this.getMyNotes
       this.getSharedNotes
     }

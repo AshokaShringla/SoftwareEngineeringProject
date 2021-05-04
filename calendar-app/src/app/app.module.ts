@@ -14,8 +14,8 @@ import { NotesComponent } from './notes/notes.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 
-import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from '@fullcalendar/interaction'
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin, interactionPlugin

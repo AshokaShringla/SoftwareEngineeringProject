@@ -40,7 +40,7 @@ class SignInView(View):
                 user = User.objects.get(email = data['email'])
                 if bcrypt.checkpw(data['password'].encode('utf-8'),user.password.encode('utf-8')):
                     token = jwt.encode({'email':data['email']}, SECRET_KEY['SECRET_KEY'],algorithm = 'HS256')
-                    token = token.decode('utf-8')
+                    # token = token.decode('utf-8')
                     res_object = {
                         "name" : user.name,
                         "email" : data['email'],
