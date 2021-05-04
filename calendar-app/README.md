@@ -18,3 +18,7 @@ Run `ng test` to execute the unit tests
 
 Contains building tool for setting up dev environment
 Contains way to start tests
+
+## Lint
+
+lint using ng lint (many problems with source code (dev note: sorry))
