@@ -70,7 +70,7 @@ class SharedNoteView(View):
             return HttpResponse(status = 200)
         except KeyError:
             return JsonResponse({ 'message' : 'INVALID_KEYS' }, status=400)
-    
+
     @login_decorator
     def get(self,request):
         try:
@@ -92,4 +92,3 @@ class SharedNoteView(View):
             return JsonResponse({'data' : result}, status = 200)
         except KeyError:
             return JsonResponse({ 'message' : 'INVALID_KEYS' }, status=400)
-            
