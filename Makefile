@@ -12,10 +12,12 @@ dev_env: FORCE
 	npm install bootstrap
 	npm install ngx-toastr --save
 	npm install @angular/animations --save  
+	npm install --save-dev @angular-devkit/build-angular
 	
-
 tests:
+	cd theme_calendar
 	python manage.py test
+	cd ../calendar-app
 	ng test
 
 server:
