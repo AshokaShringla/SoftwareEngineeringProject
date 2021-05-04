@@ -12,8 +12,8 @@ import { User } from '../models/user.model';
 })
 export class NotesComponent implements OnInit {
 
-  user: User;
-  note: Notes;
+  user = new User();
+  note = new Notes();
   mynotes:Notes[]
   sharednotes:Notes[]
   statusMessage:string
@@ -25,8 +25,8 @@ export class NotesComponent implements OnInit {
     private _contextService:ContextService) { }
 
   ngOnInit(): void {
-
     if(localStorage.getItem("logged")=="true"){
+      console.log(this.note.contents)
       this.user.email = this._contextService.getEmail();
       this.user.password = this._contextService.getPass();
       this.getMyNotes
@@ -58,11 +58,21 @@ export class NotesComponent implements OnInit {
   }
 
   addNote(){
-    
+
+    console.log("here")
+    console.log(this.note.contents)
+
+    this._notesService.addNote(this.user, this.note)
+    .subscribe((status) => this.statusMessage = status,                           
+    (error) => {console.log(error);
+      });
   }
 
-  shareNote(){
-
+  shareNote(id: number){
+    this._notesService.shareNote(this.user, id, this.share)
+    .subscribe((status) => this.statusMessage = status,                           
+    (error) => {console.log(error);
+      });
   }
 
 }

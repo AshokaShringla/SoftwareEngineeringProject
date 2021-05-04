@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EndpointsService {
 
-  public readonly baseURL = "http://localhost:8000/";
-  public readonly authURL = "http://localhost:8000/"; 
+  public readonly authURL = environment.url; 
 
   /** Register User */
   public readonly REGISTER_USER: string = this.authURL + 'user/signup';
