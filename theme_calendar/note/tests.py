@@ -51,9 +51,4 @@ class SharedNoteTest(TestCase):
         self.assertEqual(response.status_code, 200)
         token = response.token
 
-    # def test_sharednote_post_success(self):
-    #     data = {
-    #         'note_id' : 
-    #         'shared_user_emails' : 
-    #     }
 

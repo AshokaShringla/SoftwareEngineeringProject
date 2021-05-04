@@ -48,7 +48,7 @@ class NoteDeleteView(View):
         data = json.loads(request.body)
         try:
             user = request.user
-            note = Note.objects.get(owner = user, id = data['note_id'])
+            note = Note.objects.get(owner = user, id = data['id'])
             note.delete()
             return HttpResponse(status = 200)
         except KeyError:
