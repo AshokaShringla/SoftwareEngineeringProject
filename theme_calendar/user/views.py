@@ -1,5 +1,5 @@
 import json
-import bcrypt
+import bcrypt, jwt
 
 from django.views import View
 from django.http import JsonResponse, HttpResponse
@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.db import IntegrityError
 
 from .models import User
+from my_settings import SECRET_KEY
 
 class SignUpView(View):
     def post(self,request):

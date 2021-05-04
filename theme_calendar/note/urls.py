@@ -3,4 +3,5 @@ from .views import NoteView
 
 urlpatterns = [
     path('', NoteView.as_view()),
+    # path('/shared', SharedNoteView.as_view())
 ]

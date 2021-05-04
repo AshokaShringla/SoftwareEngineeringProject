@@ -14,8 +14,9 @@ class NoteView(View):
     @login_decorator
     def post(self,request):
         try:
+            data = json.loads(request.body)
             user = request.user
-            contents = request.POST.get('contents')
+            contents = data["contents"]
             Note.objects.create(
                 owner = user.id,
                 date = str(datetime.date.today()),
@@ -74,9 +75,25 @@ class SharedNoteView(View):
         except KeyError:
             return JsonResponse({ 'message' : 'INVALID_KEYS' }, status=400)
     
-    # @login_decorator
-    # def get(self,request):
-    #     try:
-    #         user = request.user
-
+    @login_decorator
+    def get(self,request):
+        try:
+            user = request.user
+            shared_notes = Note.objects.prefetch_related('sharednote_set').all()
+            shared_notes.filter(
+                Q(owner = user.id) |
+                Q(shared__user = user.id)
+            ).distinct()
+            result = [{
+                'owner' : note.owner,
+                'date': note.date,
+                'contents' : note.contents,
+                'shared' : [{
+                    'name' : n.shred.name,
+                    'email' : n.shared.name
+                }for n in note.sharednote_set.all()]
+            }for note in shared_notes]
+            return JsonResponse({'data' : result}, status = 200)
+        except KeyError:
+            return JsonResponse({ 'message' : 'INVALID_KEYS' }, status=400)
             
