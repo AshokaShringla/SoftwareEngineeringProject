@@ -11,9 +11,9 @@
     <tr *ngFor = "let note of mynotes">
         <td>{{note.date}}</td>
         <td>{{note.contents}}</td>
-        <td><input id="share" type="text" [(ngModel)]="this.share" name="share" class="form-control"
+        <td><input id="share" type="text" [(ngModel)]="this.share" name="shared" class="form-control"
           placeholder="example@gmail.com">
-          <button (click)="share(note.id)" class="btn login_btn btn-primary">Share</button>
+          <button (click)="shareNote(note.id)" class="btn login_btn btn-primary">Share</button>
         </td>
         <td><button (click) = "deleteNote(note.id)" class = "btn btn-warning"> Delete</button></td>
     </tr>

@@ -14,6 +14,8 @@ const httpOptions = {
 })
 export class NotesService {
 
+  note1 = new Notes();
+
   constructor(private _httpService: HttpClient, private endpoints: EndpointsService) { }
 
   getMyNotes(user: User): Observable<any>{
@@ -25,7 +27,8 @@ export class NotesService {
   }
 
   deleteNote(user: User, id: number): Observable<any>{
-    return this._httpService.get(this.endpoints.DELETE_NOTE + '/' + user.token + '/' + id)
+    this.note1.id = id;
+    return this._httpService.post(this.endpoints.DELETE_NOTE, this.note1 ,{headers: new HttpHeaders({'Authorization' : user.token})});
   }
 
   addNote(user: User, note: Notes): Observable<any>{
@@ -33,6 +36,9 @@ export class NotesService {
   }
 
   shareNote(user: User, id: number, share: string): Observable<any>{
-    return this._httpService.get(this.endpoints.SHARE_NOTE + '/' + id + share, {headers: new HttpHeaders({'Authorization' : user.token})});
+
+    const body = { "note_id": id, "share_user_email": share};
+
+    return this._httpService.post(this.endpoints.SHARE_NOTE, body, {headers: new HttpHeaders({'Authorization' : user.token})});
   }
 }

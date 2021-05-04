@@ -19,7 +19,12 @@ export class NotesComponent implements OnInit {
   sharednotes:Notes[]
   statusMessage:string
 
+  allShared: string[];
   share: string;
+
+  deletedNote = new Notes();
+
+
 
   constructor(private router:Router,
     private _notesService:NotesService,
@@ -53,6 +58,9 @@ export class NotesComponent implements OnInit {
   }
 
   deleteNote(id: number){
+
+    console.log(id)
+
     this._notesService.deleteNote(this.user, id)
     .subscribe((status) => this.statusMessage = status,                           
     (error) => {console.log(error);
@@ -61,7 +69,7 @@ export class NotesComponent implements OnInit {
 
   addNote(){
     this._notesService.addNote(this.user, this.note)
-    .subscribe((status) => {this.statusMessage = status, this.toastr.success("Note created")},                           
+    .subscribe((status) => {this.statusMessage = status, this.toastr.success("Note created"), location.reload()},                           
     (error) => {console.log(error);
       });
   }
