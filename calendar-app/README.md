@@ -17,7 +17,7 @@ Run `ng test` to execute the unit tests
 ## makefile
 
 Contains building tool for setting up dev environment
-Contains way to start tests
+
 
 ## Lint
 
