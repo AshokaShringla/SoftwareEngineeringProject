@@ -17,7 +17,6 @@ export class LoginService {
       console.log(body);
 
       return this._httpService.post(this.endpoints.LOGIN_USER, body);
-
     }
 
     register(user:User): Observable<any>{

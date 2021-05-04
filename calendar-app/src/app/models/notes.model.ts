@@ -1,7 +1,7 @@
 export class Notes {
 
     id: number;
-    owner: string;
+    owner: number;
     date: string;
     contents: string;
 

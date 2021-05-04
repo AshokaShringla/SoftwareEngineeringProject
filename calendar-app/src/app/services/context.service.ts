@@ -12,9 +12,12 @@ export class ContextService {
   private tokenEmail: string;
   private tokenPass: string;
 
+  private token: string;
+
   store(user:User) {
     localStorage.setItem(this.tokenEmail, user.email)
     localStorage.setItem(this.tokenPass, user.password)
+    localStorage.setItem(this.token, user.token)
     localStorage.setItem("logged", "true")
   }
 

@@ -1,14 +1,19 @@
-<p>My Notes</p>
+<p></p>
+<p style="text-align:center">My Notes</p>
 
 <table class="table table-striped table-bordered">
     <tr style="background: rgb(56, 99, 179)">
       <th>DATE</th>
       <th>CONTENTS</th>
+      <th>SHARE</th>
     </tr>
     <tr *ngFor = "let note of mynotes">
         <td>{{note.date}}</td>
         <td>{{note.contents}}</td>
-        <td>
+        <td><input id="share" type="text" [(ngModel)]="this.share" name="share" class="form-control"
+          placeholder="example@gmail.com">
+          <button (click)="share(note.id)" class="btn login_btn btn-primary">Share</button>
+        </td>
     </tr>
    
     <tr *ngIf = "mynotes && mynotes.length == 0">
@@ -16,22 +21,41 @@
     </tr>
   </table>
 
-  <p>Shared Notes</p>
+
+  <p style="text-align:center">Shared Notes</p>
 
   <table class="table table-striped table-bordered">
     <tr style="background: rgb(56, 99, 179)">
       <th>OWNER</th>
       <th>DATE</th>
       <th>CONTENTS</th>
+      <th></th>
     </tr>
     <tr *ngFor = "let note of sharednotes">
         <td>{{note.owner}}</td>
         <td>{{note.date}}</td>
         <td>{{note.contents}}</td>
-        <td>
+        <td> <button (click) = "deleteNote(note.id)" class = "btn btn-warning"> Delete</button> </td>
     </tr>
    
     <tr *ngIf = "sharednotes && sharednotes.length == 0">
       <td colspan="3">no records found</td>
     </tr>
   </table>
+
+  <div class = "form">
+  <form class="form-horizontal">
+    <div class="input-group form-group col-sm-8">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <textarea style="height: 200px" id="contents" type="text" [(ngModel)]="this.note.contents" name="contents" class="form-control"
+            placeholder="your note">
+        </textarea>
+
+    </div>
+    <div class="form-group col-sm-offset-2 col-sm-8">
+        <button (click)="addNote()" class="btn login_btn btn-primary">Add note</button>
+    </div>
+</form>
+</div>
