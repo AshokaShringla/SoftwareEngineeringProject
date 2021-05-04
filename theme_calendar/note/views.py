@@ -59,21 +59,14 @@ class SharedNoteView(View):
         data = json.loads(request.body)
         try:
             user = request.user
-            share_emails = data['share_user_emails']
+            share_email = data['share_user_email']
             note_id = data['note_id']
-            res_object = []
-            for email in share_emails:
-                share_user = User.objects.get(email = email)
-                SharedNote.objects.create(
-                    user = share_user,
-                    note = Note.objects.get(id = note_id)
-                )
-                res = {
-                    'user' : share_user.id,
-                    'note' : note_id
-                }
-                res_object.append(res)
-            return JsonResponse({ 'data' : res_object}, status = 200)
+            share_user = User.objects.get(email = share_email)
+            SharedNote.objects.create(
+                user = share_user,
+                note = Note.objects.get(id = note_id)
+            )
+            return HttpResponse(status = 200)
         except KeyError:
             return JsonResponse({ 'message' : 'INVALID_KEYS' }, status=400)
     

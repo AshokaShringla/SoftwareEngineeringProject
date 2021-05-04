@@ -5,7 +5,9 @@ prod:
 	git push origin main
 
 dev_env: FORCE
-	echo "Installing developer requirements."
+	pip install -r requirements.txt
+	npm install -g @angular/cli
+	
 
 tests:
 	python manage.py test
