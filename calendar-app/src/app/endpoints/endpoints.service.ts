@@ -16,9 +16,13 @@ export class EndpointsService {
   // Get all my notes
   public readonly GET_MNOTES: string = this.authURL + 'note/mynotes';
   // Get all notes shared with me
-  public readonly GET_SNOTES: string = this.authURL + 'note/sharednotes';
+  public readonly GET_SNOTES: string = this.authURL + 'note';
    // delete note
-   public readonly DELETE_NOTE: string = this.authURL + 'notes/';
+   public readonly DELETE_NOTE: string = this.authURL + 'note/';
+   // delete note
+   public readonly ADD_NOTE: string = this.authURL + 'note';
+   // delete note
+   public readonly SHARE_NOTE: string = this.authURL + 'note/';
 
   constructor(private http: HttpClient) { }
 }
