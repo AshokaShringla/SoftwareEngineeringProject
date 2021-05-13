@@ -23,6 +23,7 @@ Make sure to have `make` installed.
 - To test for all endpoints, run `make tests`.
 
 # Angular
+cd into calendar-app
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -34,6 +35,15 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests
+
+Tests are included for each of the following endpoints:
+ - Login user
+ - Register user
+ - Get users notes
+ - Get notes shared with user
+ - Delete note
+ - Add note
+ - Share note
 
 ## Lint
 
