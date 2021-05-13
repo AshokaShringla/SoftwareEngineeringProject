@@ -45,6 +45,16 @@ Tests are included for each of the following endpoints:
  - Add note
  - Share note
 
+Tests are also included for the following:
+ - Calendar is created
+ - Header is created
+ - Footer is created
+ - User object is created
+ - Note object is created
+ - ContextService is created
+ - AppComponent is created
+ - AppComponent has title
+
 ## Lint
 
 lint using ng lint (many problems with source code (dev note: sorry))
