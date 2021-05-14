@@ -11,7 +11,7 @@ def login_decorator(func):
         try:
             access_token    = request.META['HTTP_AUTHORIZATION']
             if access_token:
-                payload         = jwt.decode(access_token,SECRET_KEY['SECRET_KEY'],algorithms = ["HS256"])
+                payload         = jwt.decode(access_token, SECRET_KEY['SECRET_KEY'],algorithm = 'HS256')
                 user            = User.objects.get( email = payload['email'])
                 request.user    = user
             else:
@@ -24,3 +24,9 @@ def login_decorator(func):
             JsonResponse({ 'message': 'INVALID_KEY' }, status = 400)
         return func(self, request,*args, **kwargs)
     return wrapper
+
+
+
+
+
+

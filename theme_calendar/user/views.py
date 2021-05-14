@@ -44,7 +44,7 @@ class SignInView(View):
                         "name" : user.name,
                         "email" : data['email'],
                         "password" : data['password'],
-                        "token" : token
+                        "token" : token.decode('utf-8')
                     }
                     return JsonResponse(res_object, status = 200)
                 else:

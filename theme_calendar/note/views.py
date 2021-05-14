@@ -34,6 +34,7 @@ class NoteView(View):
             user = request.user
             notes = Note.objects.filter(owner = user)
             note_list = [{
+                'id' : note.id,
                 'owner' : note.owner.name,
                 'date' : note.date,
                 'contents' : note.contents
@@ -48,7 +49,7 @@ class NoteDeleteView(View):
         data = json.loads(request.body)
         try:
             user = request.user
-            note = Note.objects.get(owner = user, id = data['id'])
+            note = Note.objects.get(owner = user.id, id = data['id'])
             note.delete()
             return HttpResponse(status = 200)
         except KeyError:
