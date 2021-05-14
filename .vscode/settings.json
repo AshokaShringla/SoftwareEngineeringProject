@@ -1,0 +1,11 @@
+{
+    "extensions.confirmedUriHandlerExtensionIds": [
+    
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.pydocstyleArgs": [
+        "--ignore-D403"
+    ],
+    "python.linting.enabled": true
+}

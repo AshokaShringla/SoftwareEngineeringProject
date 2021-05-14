@@ -20,7 +20,8 @@ Make sure to have `make` installed.
 
 - To create the new env for a new developer, run `make dev_env`.
 - To commit and push the code to the repo, type `make prod`.
-- To test for all endpoints, run `make tests`.
+- To test for all endpoints for backend, run `python manage.py test`.
+- Run `python manage.py runserver` to start server.
 - 
 ### Angular
 ## Development server
