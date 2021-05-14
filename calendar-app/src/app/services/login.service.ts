@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EndpointsService } from '../endpoints/endpoints.service';
 import { User } from '../models/user.model';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
